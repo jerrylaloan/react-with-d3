@@ -49,7 +49,7 @@ function IndonesiaGeoChart() {
   let color = d3
     .scaleThreshold()
     .domain(d3.range(2, 10))
-    .range(d3.schemeYlOrRd[9]);
+    .range(d3.schemeYlGnBu[9]);
 
   // let color = scale.category20();
 
@@ -70,6 +70,12 @@ function IndonesiaGeoChart() {
       console.log("IndonesiaGeoChart -> dataIndonesia", dataIndonesia);
 
       let svg = d3.select(d3Container.current);
+      svg
+        .append("rect")
+        .attr("class", "background")
+        .attr("width", width)
+        .attr("height", height)
+        .on("click", clicked);
 
       let g = svg.append("g");
 
@@ -91,12 +97,12 @@ function IndonesiaGeoChart() {
         //   // return color((d.ipm = ipm.get(key)));
         // })
         .attr("fill", function(d, i) {
-          const rndNumber = Math.random() * (10 - 2) + 2;
+          const rndNumber = Math.random() * (25 - 2) + 2;
           return color(rndNumber.toString());
         })
         .attr("d", path)
-        .on("click", clicked)
-        .on("mouseover", (d, i) => alert(`hovered >>> ${d.properties.NAME_2}`));
+        .on("click", clicked);
+      // .on("mouseover", (d, i) => alert(`hovered >>> ${d.properties.NAME_2}`));
 
       g.append("path")
         .datum(
