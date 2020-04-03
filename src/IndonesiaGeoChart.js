@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import { queue } from "d3-queue";
 import * as scale from "d3-scale";
 import * as topojson from "topojson";
-
 import * as d3 from "d3";
+
+import jsonDataIndonesia from "./IndonesiaData.json";
 
 function IndonesiaGeoChart() {
   let width = 960,
@@ -55,12 +56,12 @@ function IndonesiaGeoChart() {
 
   useEffect(() => {
     (async function fetchinData() {
-      const result = await fetch(
-        "http://bl.ocks.org/tvalentius/raw/066b055d4d55de3eb303dc9f3d210d76/bd8310d383d23a08d62e2b22d2daa834f21535d0/indonesia-topojson-city-regency.json"
-      );
-      const jsonData = await result.json();
-      console.log("fetchinData -> result", jsonData);
-      setDataIndonesia(jsonData);
+      // const result = await fetch(
+      //   "http://bl.ocks.org/tvalentius/raw/066b055d4d55de3eb303dc9f3d210d76/bd8310d383d23a08d62e2b22d2daa834f21535d0/indonesia-topojson-city-regency.json"
+      // );
+      // const jsonData = await result.json();
+      // console.log("fetchinData -> result", jsonData);
+      setDataIndonesia(jsonDataIndonesia);
     })();
   }, []);
 
