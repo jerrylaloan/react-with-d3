@@ -176,7 +176,6 @@ function IndonesiaGeoChart() {
   return (
     <>
       <svg
-        onClick={() => console.log("clicked")}
         className="d3-component"
         width={width}
         height={height}
